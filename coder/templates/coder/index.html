@@ -1,0 +1,19 @@
+{% extends 'coder/base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h1>Загрузите файл:</h1>
+<hr>
+<form method="POST" class="post-form" enctype="multipart/form-data">
+{% csrf_token %}
+<table>
+	{{ form.as_table }}
+</table>
+<input type="submit"  class="button28" value="Загрузить" >
+</form>
+<hr>
+{% else %}
+<h1>Нет досутпа. Необходимо войти на сайт</h1>	
+<hr>
+{% endif %}
+{% endblock content %}

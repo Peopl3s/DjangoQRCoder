@@ -1,0 +1,12 @@
+{% extends 'coder/base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h1>Файл обработан:</h1>
+<hr>
+<h2><a href="{% url 'download_file' file=fp%}">Скачать файл</a></h2>	
+<hr>
+{% else %}
+<h1>Нет досутпа. Необходимо войти на сайт</h1>	
+{% endif %}
+{% endblock content %}
