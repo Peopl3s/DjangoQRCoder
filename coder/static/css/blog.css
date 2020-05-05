@@ -1,0 +1,91 @@
+* {
+    box-sizing: border-box;
+}
+
+body{
+	background-color:#689AD3
+}
+
+
+.page-header{
+    background-color: #0D56A6;
+    margin-top: 0;
+    padding: 20px 0px 20px 200px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: white;
+    font-size: 36pt;
+    text-decoration: none;
+	
+}
+
+.page-header h2, .page-header h2 a, .page-header h2 a:visited, .page-header h2 a:active {
+    color: black;
+    font-size: 16pt;
+    text-decoration: none;
+
+}
+
+.content {
+	border: 5px solid #04356C;
+	max-width:500px;
+	background-color:#4186D3;
+	height:100%;
+}
+
+h1, h2, h3, h4 {
+	text-align:center;
+    font-family: 'Lobster', cursive;
+    color:white;
+}
+
+h2 a{
+	color: black;
+}
+
+.post-form textarea, .post-form input {
+	margin-top:5px;
+    width: 100%;
+    color:white;
+
+}
+
+.top-menu, .top-menu:hover, .top-menu:visited {
+    color: #ffffff;
+    float: right;
+    font-size: 16pt;
+    margin-right: 10px;
+}
+
+.button28 {
+  position: relative;
+  display: inline-block;
+  font-size: 90%;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  text-shadow: 0 -1px 2px rgba(0,0,0,.2);
+  padding: .5em 1em;
+  outline: none;
+  border-radius: 3px;
+  background: #04356C;
+  box-shadow:
+   0 1px rgba(255,255,255,.2) inset,
+   0 3px 5px rgba(0,1,6,.5),
+   0 0 1px 1px rgba(0,1,6,.2);
+  transition: .2s ease-in-out;
+}
+
+.button28:hover:not(:active) {
+  background: linear-gradient(rgb(126,126,134), rgb(70,71,76)) rgb(126,126,134);
+}
+
+.button28:active {
+  top: 1px;
+  background: linear-gradient(rgb(76,77,82), rgb(56,57,62)) rgb(76,77,82);
+  box-shadow:
+   0 0 1px rgba(0,0,0,.5) inset,
+   0 2px 3px rgba(0,0,0,.5) inset,
+   0 1px 1px rgba(255,255,255,.1);
+}
