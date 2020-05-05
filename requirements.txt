@@ -1,0 +1,4 @@
+django
+pyqrcode
+python-docx
+pypng
