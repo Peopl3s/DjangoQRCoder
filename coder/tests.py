@@ -18,7 +18,7 @@ class IndexViewTests(TestCase):
 		If input file is't .docx/doc extentions, an appropriate message should be displayed.
 		"""
 		client = Client()
-		response = client.post('/accounts/login/', {'username': 'peoples', 'password': 'GGdd98611'})
+		response = client.post('/accounts/login/', {'username': 'testuser1', 'password': 'GGdd1111'})
 		self.assertEqual(response.status_code, 200)
 		response = client.post('/', {'file': 'hello.php'})
 		self.assertEqual(response.status_code, 200)
