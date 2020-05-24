@@ -4,12 +4,14 @@ from django.test import Client
 from .processfunc import *
 
 class IndexViewTests(TestCase):
+	def setUp(self):
+		self.client = Client()
+        
 	def test_index_view_with_no_login_user(self):
 		"""
 		If no login user, an appropriate message should be displayed.
 		"""
-		client = Client()
-		response = client.get(reverse('index'))
+		response = self.client.get(reverse('index'))
 		self.assertEqual(response.status_code, 200)
 		self.assertContains(response, "Нет досутпа. Необходимо войти на сайт".encode('utf-8'))
 	
@@ -17,10 +19,9 @@ class IndexViewTests(TestCase):
 		"""
 		If input file is't .docx/doc extentions, an appropriate message should be displayed.
 		"""
-		client = Client()
-		response = client.post('/accounts/login/', {'username': 'testuser1', 'password': 'GGdd1111'})
+		response = self.client.post('/accounts/login/', {'username': 'peoples', 'password': 'GGdd98611'})
 		self.assertEqual(response.status_code, 200)
-		response = client.post('/', {'file': 'hello.php'})
+		response = self.client.post('/', {'file': 'hello.php'})
 		self.assertEqual(response.status_code, 200)
 		self.assertContains(response, "Назад".encode('utf-8'))
 	
@@ -31,4 +32,3 @@ class UtilityFunctionTests(TestCase):
 		True if input file has docx/doc ext
 		"""
 		self.assertEqual(isMsWordFile('hello.docx'), True)
-	
