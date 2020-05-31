@@ -1,6 +1,7 @@
 import pyqrcode
 import re
 import os
+import hashlib
 from math import ceil
 from docx import Document
 from docx.shared import Inches
@@ -21,7 +22,8 @@ def downloadFileOnServer(file):
 
 def processDonloadedFile(filename):
     document = Document(filename)
-    text = re.sub(r'\s|\t|\n', '', readTextFrowWordFile(document))
+    #text = re.sub(r'\s|\t|\n', '', readTextFrowWordFile(document))
+    text = readTextFrowWordFile(document)
     fileToSave = getQrCodeFromText(text, filename)
     return addQrCodeToWordFile(document, filename, fileToSave)
     
@@ -29,10 +31,12 @@ def readTextFrowWordFile(document):
     return ''.join([paragraph.text for paragraph in document.paragraphs])
 
 def getQrCodeFromText(text, filePath):
-    lengthText = len(text)
-    skip = calcSkipCount(lengthText)
+    #lengthText = len(text)
+    #skip = calcSkipCount(lengthText)
+    hash_object = hashlib.md5(text.encode())
     fileToSave = filePath + '.png'
-    big_code = pyqrcode.create(text[::skip], error='L', version=40, encoding='utf-8')
+    big_code = pyqrcode.create(hash_object.hexdigest(), encoding='utf-8')	
+    #big_code = pyqrcode.create(text[::skip], error='L', version=40, encoding='utf-8')
     big_code.png(fileToSave, scale=6)
     return fileToSave
 
